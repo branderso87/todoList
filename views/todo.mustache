@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
     <title>Todo List</title>
   </head>
   <body>
@@ -13,26 +14,27 @@
       </div>
       <div class = "incomplete-tasks">
         <ul>
-        {{#todo}}
-        <button type="submit" name = "tocomplete" value = "{{.}}"> Mark as Complete</button>
-        <h3>{{.}}</h3>
-        {{/todo}}
-        <button type = "submit">Mark as Complete</button>
-        <h3>Walk the Dog</h3>
-        <button type = "submit">Mark as Complete</button>
-        <h3>Drink more beer</h3>
-        <button type = "submit">Mark as Complete</button>
-        <h3>Have a Nice Day</h3>
+          <li>
+            <button type = "submit">Mark as Complete</button> Have a Nice Day
+          </li>
+          {{#todo}}
+            <li>
+            <button type="submit" name = "tocomplete" value = "{{.}}"> Mark as Complete</button>{{.}}
+            </li>
+          {{/todo}}
         </ul>
       </div>
-      <div>
+      <div class = "completed-tasks">
         <h2>Completed Tasks</h2>
-        {{#complete}}
-        <h3>{{.}}</h3>
-        {{/complete}}
-        <h3>Climb Mount Everest</h3>
-        <h3>Become a Millionaire</h3>
-        <h3>Be Amazing</h3>
+        <ul>
+          {{#complete}}
+            <li>{{.}}</li>
+          {{/complete}}
+          <li>Climb Mount Everest</li>
+          <li>Become a Millionaire</li>
+          <li>Be Awesome</li>
+
+        </ul>
       </div>
     </form>
   </body>
