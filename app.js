@@ -18,11 +18,15 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   const task = req.body.task
   const tocomplete = req.body.tocomplete
-  
+
   if (task) {
     todo.push(task)
   } else if (tocomplete) {
-    todo.splice(todo.length - 1, 1)
+    for(let i = 0; i < todo.length; i++) {
+      if (todo === tocomplete) {
+        todo.splice(todo[i] - 1, 1)
+      }
+    }
     complete.push(tocomplete)
   }
   res.redirect('/')
